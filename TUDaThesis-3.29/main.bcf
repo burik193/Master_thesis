@@ -2344,11 +2344,10 @@
     <bcf:datasource type="file" datatype="bibtex">DEMO-TUDaBibliography.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1">tudapub</bcf:citekey>
-    <bcf:citekey order="2">scrguide</bcf:citekey>
+    <bcf:citekey order="1">scrguide</bcf:citekey>
+    <bcf:citekey order="2">tudapub</bcf:citekey>
     <bcf:citekey order="3">tudapub</bcf:citekey>
-    <bcf:citekey order="4">tudapub</bcf:citekey>
-    <bcf:citekey order="5">scrguide</bcf:citekey>
+    <bcf:citekey order="4">scrguide</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">

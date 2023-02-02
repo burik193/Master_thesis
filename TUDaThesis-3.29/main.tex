@@ -49,6 +49,7 @@
 
 
 % Der folgende Block ist nur bei pdfTeX auf Versionen vor April 2018 notwendig
+\usepackage{verbatim}
 \usepackage{iftex}
 \ifPDFTeX
 	\usepackage[utf8]{inputenc}%kompatibilität mit TeX Versionen vor April 2018
@@ -143,26 +144,37 @@
 %\affidavit[signature-image={\includegraphics[width=\width,height=1cm]{example-image}}, <hier können andere Optionen wie z.B. affidavit=digital zusätzlich stehen>]
 
 \tableofcontents
-\chapter{Problem introduction}
+\chapter{Introduction}
+
+This work will be dedicated to the problem, which is very common to the business. Nowadays almost every (if not every) company  that's coming from such fields like B2B (business-to-business), B2C (business-to-consumer), E-commerce, service-based, healthcare, NPOs (Non-Profit Organizations), Financial institutions, Telecommunications, Retail, Real estate or Transportation [FIND LITERATURE] uses one or several CRM Systems (Customer Relationship Management System) to manage internal and external organizational relationships, which also includes storing (and protecting) all sorts of the data, including the data about its products, activities, customers and shareholders etc. This data then could be utilized to provide a broad source of applications within of the company. One of such possible applications is building prediction or suggestion models to better understand the behaviour of the customers, product on the market or pricing development. 
+
+While to solve those problems there exists a broad set of tools, they would be useless unless there's a valid data to get insights from. For it one would first have to collect the data over some span of time and to prepare it to use. And this very point of collecting and processing data is the standing ground for the whole application to work accordingly, since it will have to rely on this data through its whole life-time.
+
+Let's imagine a company hosting various events (also online-events) during some period of time, while also gathering the data about the participants in form of some registration form, that also includes the name of the participant. The use case that will appear at some point using this data would of course include the validation of such data.
+
+This brings us to the point, where there's only one possible way to do it properly - match this data from registration sheets to the data of the CRM System. While we can be (almost) sure about validity of the CRM data, there's no way to be sure, that data from registration sheets is of the needed quality. Unconscious mistakes such as misspelling or getting typing errors in the own name are often a very common in the data like this. But also conscious misspelling such as writing the name in a different way or even using a nick-name instead of real name might coexist it the same data. And lastly, the events might also include participants from outside of the company, which makes the data not only chaotic, but also sparse in the sense of possible matches.
+
+Of course this is only one example of this type of problems, there're many more, just name a few: matching product names made by company using CRM Data and product names, which have been sold by a retailer, written by hand by the sales workers; matching therapeutic area of a doctor from the CRM system to a therapeutic area collected by sales employees etc.
+
+All this cases are similar in few ways: 
+\begin{enumerate}
+\item[•] it's a matching problem including two (often very big) data sets, which leads to performance issues;
+\item[•] the data consists of character strings without any context;
+\item[•] the data contains proper names, which don't really have or should have semantic sense;
+\item[•] the collected data includes mistakes and mismatches with regard to a valid data.
+\end{enumerate}
+
+We will call this set of problems \textbf{name matching}.
+
+Using this knowledge we now can define our goal:
+\begin{enumerate}
+\item[1] define mapping, that matches a fuzzy name to its valid analogue,
+\item[2] create the architecture of the solution,
+\item[3] perform the matching task in polynomial time (???)
+\end{enumerate}
 
 
-
-
-\chapter{Über diese Datei}
-Die Datei \file{DEMO-TUDaThesis.tex} ist ein Template für Abschlussarbeiten im Stil des Corporate Designs der TU Darmstadt.
-Sie ist Teil des TUDa-CI-Bundles wurde vom in Teilen tuddesign-Paket von C.~v.~Loewenich und J.~Werner inspiriert.
-
-Sie verwendet die Dokumentenklasse \file{tudapub.cls}, allerdings mit erweiterten Einstellungen. In diesem Dokument werden überwiegend die speziell auf Abschlussarbeiten ausgelegten Möglichkeiten beschrieben. Weitere Konfigurationsmöglichkeiten finden sich in der Datei \file{DEMO-TUDaPub.pdf} \cite{tudapub}.
-
-Es ist voreingestellt, dass eine PDF/A-Datei erzeugt wird. Die beste Kompatibilität hierfür bietet Lua\LaTeX. Bei anderen Compilern kann dies entsprechend der Angaben in DEMO-TUDaPub zu Problemen führen. In diesem Fall sollte entweder der Compiler gewechselt oder \code{pdfa=false} aktiviert werden.
-
-Für weitere Hinweise kann ein Blick in die zur Dokumentenklasse gehörigen Dokumentation (DEMO-TUDaPub.pdf) hilfreich sein. Sie wird zusammen mit den Quelldateien verteilt.
-
-\minisec{Unterschiede der Demodateien DEMO-TUDaThesis und DEMO-TUDaPhD}
-Zwar basieren alle drei DEMO-Dateien auf der Klasse \code{tudapub}, allerdings sind die Basiseinstelungen dem Dokumententyp angepasst.
-Für Erläuterungen zu den TUDaPub spezifischen Optionen, sei auf die Datei DEMO-TUDaPub verwiesen.
-Da die Basisklasse für beide identisch ist, kann jede Option abgeändert werden. Die Folgende Liste zeigt lediglich die gezeigten Features bei Standardeinstellungen.
-
+\begin{comment}
 \noindent
 \begin{tabularx}{\linewidth}{@{}p{.25\linewidth}*3{>{\centering\arraybackslash}X}@{}}
 	\toprule
@@ -183,7 +195,7 @@ Da die Basisklasse für beide identisch ist, kann jede Option abgeändert werden
 	custommargins&\FeatureTrue&\FeatureTrue&\FeatureFalse\\
 	\bottomrule
 \end{tabularx}
-
+\end{comment}
 
 \chapter{Verwendung}
 Die Klasse kann wie für Dokumentenklassen üblich eingebunden werden

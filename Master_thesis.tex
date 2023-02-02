@@ -1,10 +1,248 @@
-\documentclass[14]{article}
-\usepackage{tuda-ci}
+%% This is file `DEMO-TUDaThesis.tex' version 3.29 (2022/12/11),
+%% it is part of
+%% TUDa-CI -- Corporate Design for TU Darmstadt
+%% ----------------------------------------------------------------------------
+%%
+%%  Copyright (C) 2018--2022 by Marei Peischl <marei@peitex.de>
+%%
+%% ============================================================================
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3c
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%% http://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of LaTeX
+%% version 2008/05/04 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%%
+%% The Current Maintainers of this work are
+%%   Marei Peischl <tuda-ci@peitex.de>
+%%   Markus Lazanowski <latex@ce.tu-darmstadt.de>
+%%
+%% The development respository can be found at
+%% https://github.com/tudace/tuda_latex_templates
+%% Please use the issue tracker for feedback!
+%%
+%% If you need a compiled version of this document, have a look at
+%% http://mirror.ctan.org/macros/latex/contrib/tuda-ci/doc
+%% or at the documentation directory of this package (if installed)
+%% <path to your LaTeX distribution>/doc/latex/tuda-ci
+%% ============================================================================
+%%
+% !TeX program = lualatex
+%%
+
+\documentclass[
+	ngerman,
+	ruledheaders=section,%Ebene bis zu der die Überschriften mit Linien abgetrennt werden, vgl. DEMO-TUDaPub
+	class=report,% Basisdokumentenklasse. Wählt die Korrespondierende KOMA-Script Klasse
+	thesis={type=bachelor},% Dokumententyp Thesis, für Dissertationen siehe die Demo-Datei DEMO-TUDaPhd
+	accentcolor=9c,% Auswahl der Akzentfarbe
+	custommargins=true,% Ränder werden mithilfe von typearea automatisch berechnet
+	marginpar=false,% Kopfzeile und Fußzeile erstrecken sich nicht über die Randnotizspalte
+	%BCOR=5mm,%Bindekorrektur, falls notwendig
+	parskip=half-,%Absatzkennzeichnung durch Abstand vgl. KOMA-Script
+	fontsize=11pt,%Basisschriftgröße laut Corporate Design ist mit 9pt häufig zu klein
+	logofile=tud_logo.png, %Falls die Logo Dateien nicht vorliegen
+]{tudapub}
+
+
+% Der folgende Block ist nur bei pdfTeX auf Versionen vor April 2018 notwendig
+\usepackage{verbatim}
+\usepackage{iftex}
+\ifPDFTeX
+	\usepackage[utf8]{inputenc}%kompatibilität mit TeX Versionen vor April 2018
+\fi
+
+%%%%%%%%%%%%%%%%%%%
+%Sprachanpassung & Verbesserte Trennregeln
+%%%%%%%%%%%%%%%%%%%
+\usepackage[english, main=ngerman]{babel}
+\usepackage[autostyle]{csquotes}% Anführungszeichen vereinfacht
+
+% Falls mit pdflatex kompiliert wird, wird microtype automatisch geladen, in diesem Fall muss diese Zeile entfernt werden, und falls weiter Optionen hinzugefügt werden sollen, muss dies über
+% \PassOptionsToPackage{Optionen}{microtype}
+% vor \documentclass hinzugefügt werden.
+\usepackage{microtype}
+
+%%%%%%%%%%%%%%%%%%%
+%Literaturverzeichnis
+%%%%%%%%%%%%%%%%%%%
+\usepackage{biblatex}   % Literaturverzeichnis
+\bibliography{DEMO-TUDaBibliography}
+
+
+%%%%%%%%%%%%%%%%%%%
+%Paketvorschläge Tabellen
+%%%%%%%%%%%%%%%%%%%
+%\usepackage{array}     % Basispaket für Tabellenkonfiguration, wird von den folgenden automatisch geladen
+\usepackage{tabularx}   % Tabellen, die sich automatisch der Breite anpassen
+%\usepackage{longtable} % Mehrseitige Tabellen
+%\usepackage{xltabular} % Mehrseitige Tabellen mit anpassbarer Breite
+\usepackage{booktabs}   % Verbesserte Möglichkeiten für Tabellenlayout über horizontale Linien
+
+%%%%%%%%%%%%%%%%%%%
+%Paketvorschläge Mathematik
+%%%%%%%%%%%%%%%%%%%
+%\usepackage{mathtools} % erweiterte Fassung von amsmath
+%\usepackage{amssymb}   % erweiterter Zeichensatz
+%\usepackage{siunitx}   % Einheiten
+
+%Formatierungen für Beispiele in diesem Dokument. Im Allgemeinen nicht notwendig!
+\let\file\texttt
+\let\code\texttt
+\let\tbs\textbackslash
+\let\pck\textsf
+\let\cls\textsf
+
+\usepackage{pifont}% Zapf-Dingbats Symbole
+\newcommand*{\FeatureTrue}{\ding{52}}
+\newcommand*{\FeatureFalse}{\ding{56}}
 
 \begin{document}
 
+\Metadata{
+	title=TUDaThesis - Abschlussarbeiten im CD der TU Darmstadt,
+	author=Marei Peischl
+}
 
+\title{TUDaThesis -- Abschlussarbeiten im CD der TU Darmstadt}
+\subtitle{\LaTeX{} using TU Darmstadt's Corporate Design}
+\author[M. Peischl]{Marei Peischl}%optionales Argument ist die Signatur,
+\birthplace{Geburtsort}%Geburtsort, bei Dissertationen zwingend notwendig
+\reviewer{Gutachter 1 \and Gutachter 2 \and noch einer \and falls das immernoch nicht reicht}%Gutachter
 
-Hi
+%Diese Felder werden untereinander auf der Titelseite platziert.
+%\department ist eine notwendige Angabe, siehe auch dem Abschnitt `Abweichung von den Vorgaben für die Titelseite'
+\department{ce} % Das Kürzel wird automatisch ersetzt und als Studienfach gewählt, siehe Liste der Kürzel im Dokument.
+\institute{Institut}
+\group{Arbeitsgruppe}
+
+\submissiondate{\today}
+\examdate{\today}
+
+% Hinweis zur Lizenz:
+% TUDa-CI verwendet momentan die Lizenz CC BY-NC-ND 2.0 DE als Voreinstellung.
+% Die TU Darmstadt hat jedoch die Empfehlung von dieser auf die liberalere
+% CC BY 4.0 geändert. Diese erlaubt eine Verwendung bearbeiteter Versionen und
+% die kommerzielle Nutzung.
+% TUDa-CI wird im nächsten größeren Release ebenfalls diese Anpassung vornehmen.
+% Aus diesem Grund wird empfohlen die Lizenz manuell auszuwählen.
+%\tuprints{urn=XXXXX,printid=XXXX,year=2022,license=cc-by-4.0}
+% To see further information on the license option in English, remove the license= key and pay attention to the warning & help message.
+
+% \dedication{Für alle, die \TeX{} nutzen.}
+
+\maketitle
+
+\affidavit% oder \affidavit[digital] falls eine rein digitale Abgabe vorgesehen ist.
+% Es gibt mit Version 3.20 die Möglichkeit ein Bild als Signatur einzubinden.
+% TUDa-CI kann nicht garantieren, dass dies zulässig ist oder eine eigenhändige Unterschrift ersetzt.
+% Dies ist durch Studierende vor der Verwendung abzuklären.
+% Die Verwendung funktioniert so:
+%\affidavit[signature-image={\includegraphics[width=\width,height=1cm]{example-image}}, <hier können andere Optionen wie z.B. affidavit=digital zusätzlich stehen>]
+
+\tableofcontents
+\chapter{Introduction}
+
+This work will be dedicated to the problem, which is very common to the business. Nowadays almost every (if not every) company  that's coming from such fields like B2B (business-to-business), B2C (business-to-consumer), E-commerce, service-based, healthcare, NPOs (Non-Profit Organizations), Financial institutions, Telecommunications, Retail, Real estate or Transportation [FIND LITERATURE] uses one or several CRM Systems (Customer Relationship Management System) to manage internal and external organizational relationships, which also includes storing (and protecting) all sorts of the data, including the data about its products, activities, customers and shareholders etc. This data then could be utilized to provide a broad source of applications within of the company. One of such possible applications is building prediction or suggestion models to better understand the behaviour of the customers, product on the market or pricing development. 
+
+While to solve those problems there exists a broad set of tools, they would be useless unless there's a valid data to get insights from. For it one would first have to collect the data over some span of time and to prepare it to use. And this very point of collecting and processing data is the standing ground for the whole application to work accordingly, since it will have to rely on this data through its whole life-time.
+
+Let's imagine a company hosting various events (also online-events) during some period of time, while also gathering the data about the participants in form of some registration form, that also includes the name of the participant. The use case that will appear at some point using this data would of course include the validation of such data.
+
+This brings us to the point, where there's only one possible way to do it properly - match this data from registration sheets to the data of the CRM System. While we can be (almost) sure about validity of the CRM data, there's no way to be sure, that data from registration sheets is of the needed quality. Unconscious mistakes such as misspelling or getting typing errors in the own name are often a very common in the data like this. But also conscious misspelling such as writing the name in a different way or even using a nick-name instead of real name might coexist it the same data. And lastly, the events might also include participants from outside of the company, which makes the data not only chaotic, but also sparse in the sense of possible matches.
+
+Of course this is only one example of this type of problems, there're many more, just name a few: matching product names made by company using CRM Data and product names, which have been sold by a retailer, written by hand by the sales workers; matching therapeutic area of a doctor from the CRM system to a therapeutic area collected by sales employees etc.
+
+All this cases are similar in few ways: 
+\begin{enumerate}
+\item[•] it's a matching problem including two (often very big) data sets, which leads to performance issues;
+\item[•] the data consists of character strings without any context;
+\item[•] the data contains proper names, which don't really have or should have semantic sense;
+\item[•] the collected data includes mistakes and mismatches with regard to a valid data.
+\end{enumerate}
+
+We will call this set of problems \textbf{fuzzy name matching}.
+
+Using this knowledge we now can define our goal:
+\begin{enumerate}
+\item[1] define mapping, that matches a fuzzy name to its valid analogue,
+\item[2] create the architecture of the solution,
+\item[3] perform the matching task in polynomial time (???)
+\end{enumerate}
+
+Here comes a section about following chapters.
+
+%% Say thanks to everybody
+
+\begin{comment}
+\noindent
+\begin{tabularx}{\linewidth}{@{}p{.25\linewidth}*3{>{\centering\arraybackslash}X}@{}}
+	\toprule
+	Option&DEMO-TUDaThesis&DEMO-TUDaPhD&DEMO-TUDapub\\
+	\midrule
+	twoside&\FeatureFalse&\FeatureTrue&\FeatureFalse\\\midrule
+	parskip&\FeatureTrue&\FeatureFalse&\FeatureTrue\\\midrule
+	Kolophon&\FeatureFalse&\FeatureTrue&\FeatureFalse\\\midrule
+	Widmung&\FeatureFalse&\FeatureTrue&\FeatureFalse\\\midrule
+	Schriftgröße&11pt&11pt&9pt\\\midrule
+	ruledheaders&section&chapter&all\\\midrule
+	Basisklasse&scrreprt&scrbook&scrartcl\\\midrule
+	thesis&\ttfamily type=bachelor&\ttfamily type=dr, dr=rernat
+	&\FeatureFalse\\\midrule
+	marginpar&\FeatureFalse&\FeatureFalse&\FeatureTrue\\\midrule
+	Affidavit\newline\rlap{(Selbstständigkeitserklärung)}&\FeatureTrue&\FeatureTrue&\FeatureFalse\\\midrule
+	abstract&\FeatureFalse&\FeatureTrue&\FeatureTrue\\\midrule
+	custommargins&\FeatureTrue&\FeatureTrue&\FeatureFalse\\
+	\bottomrule
+\end{tabularx}
+\end{comment}
+
+\chapter{Definitions}
+
+All the needed definitions should be stored here.
+\pagebreak
+\section{Theory and previous work on the matter}
+
+Include Theorems and Conclusions.
+\pagebreak
+\section{Mapping possibilities}
+
+\subsection{Using training set}
+\pagebreak
+\subsection{Using bounded training set}
+\pagebreak
+\subsection{No training set}
+\pagebreak
+\subsubsection{Architecture}
+% incl. theory
+\pagebreak
+\subsubsection{Implementation}
+% incl. code
+\pagebreak
+\subsubsection{Performance}
+\pagebreak
+
+\section{Overall performance + acceleration}
+% incl. code
+\subsection{Implementation}
+\pagebreak
+\subsection{Performance}
+\pagebreak
+
+\section{Use case}
+\subsection{Implementation}
+\pagebreak
+\subsection{Evaluation}
+\pagebreak
+
+\section{Conclusion}
+\pagebreak
+
+\section{Literature}
+
+\printbibliography
 
 \end{document}
