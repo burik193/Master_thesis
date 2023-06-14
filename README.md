@@ -40,7 +40,7 @@ set of problems as Fuzzy Name Matching (FNM). Our goal is to develop a mapping s
 misspelled names to their valid counterparts, create an effective solution architecture, and perform the
 matching task in feasible time.
 
-##<img alt="HoTo" src="question-mark.png" width=12> How to start
+<img alt="HoTo" src="question-mark.png" width=12> How to start
 
 Install python 3.9 and proceed with
 
@@ -52,7 +52,7 @@ look like following:
 
     pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu117
 
-##<img alt="HoTo" src="struct.png" width=50>  Code structure
+<img alt="HoTo" src="struct.png" width=50>  Code structure
 
 The code is wrapped inside the jupyter notebook interface for exploration purposes and equipped with additional links 
 for better navigation using Table of Contents.
