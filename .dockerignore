@@ -1,0 +1,14 @@
+__pycache__
+.ipynb_checkpoints/
+.git/
+.idea/
+images/
+models/
+record_linker_settings/
+RHS_1/
+RHS_2/
+tmpdir_tts/
+tmpdir_vocoder/
+first_and_last.csv
+name.basics.tsv.gz
+validation_dataset.csv
